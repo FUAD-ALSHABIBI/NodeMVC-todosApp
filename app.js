@@ -14,22 +14,19 @@ const schema = new mongoose.Schema({title:String})
 const Task = mongoose.model("Task",schema)
 
 //insert 
-app.get('/create/:title',(req,res)=>{
-    const firstTask = new Task({ title: req.params.title })
-    firstTask.save().then(() => console.log("done"))
-    res.send("nice")
+app.post('/create',(req,res)=>{
+    const firstTask = new Task({ title: req.body.title })
+    firstTask.save().then(() => res.redirect('/'))
 })
 
 
 //find/show
 app.get('/', (req, res) => {
-    let task = []
     Task.find({}).then((tasks) => {
-        tasks.forEach(element => {
-            task.push({_id: element._id, title: element.title})
-        });
-           console.log(task)
-            res.render("todo.ejs")
+        // tasks.forEach(element => {
+        //     task.push({_id: element._id, title: element.title})
+        // });
+            res.render("todo.ejs", {todos: tasks})
     })
    
 

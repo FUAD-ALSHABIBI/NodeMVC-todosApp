@@ -1,11 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODO APP</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </head>
-<body>
-    
+
+<body style="background-color: azure;">
+    <div align="center">
+        <div style="background-color: rgb(167, 178, 190); margin: 10%; width: 500px; border-radius: 10px;">
+            <h1>List of Todos</h1>
+
+            <form action="/create" method="POST">
+                <input type="text" name="title">
+                <button type="submit" class="btn btn-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-file-plus" viewBox="0 0 16 16">
+                        <path
+                            d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5z" />
+                        <path
+                            d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1" />
+                    </svg>
+                </button>
+            </form><br>
+
+            <% if(todos.length> 0){ %>
+                <div class="card" style="width: 18rem;">
+                    <ul class="list-group list-group-flush">
+                        <% todos.forEach(task=> { %>
+                            <li class="list-group-item">
+                                <%= task.title%>
+                            </li>
+                            <% }) %>
+                    </ul>
+                </div><br>
+                <% } %>
+        </div>
+    </div>
 </body>
+
 </html>
