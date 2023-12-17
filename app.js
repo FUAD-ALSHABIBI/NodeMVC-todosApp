@@ -7,7 +7,7 @@ app.set("view engine","ejs")
 //middleware for view
 app.use(express.urlencoded({extended: true}))
 
-mongoose.connect('mongodb+srv://FFF:nKiJ0S3NHJvj1xp1@cluster0.3riqmft.mongodb.net/Todos',{useNewUrlParser: true,
+mongoose.connect('mongoDBURL',{useNewUrlParser: true,
 useUnifiedTopology: true })
 
 const schema = new mongoose.Schema({title:String})
